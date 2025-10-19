@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, Linkedin, Instagram } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 
 export const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -62,33 +62,6 @@ export const Footer = () => {
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span className="text-sm">+977 9807470285</span>
-                </a>
-              </div>
-
-              {/* Social Links */}
-              <div className="flex gap-4 pt-2">
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://wa.me/9779807470285"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="WhatsApp"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-5 h-5" />
                 </a>
               </div>
             </div>

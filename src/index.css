@@ -52,11 +52,22 @@ All colors MUST be HSL.
     /* Custom design tokens */
     --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(221 83% 63%) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(215 100% 98%) 0%, hsl(0 0% 100%) 100%);
-    --shadow-elegant: 0 10px 40px -10px hsl(221 83% 53% / 0.15);
-    --shadow-card: 0 4px 20px -2px hsl(220 20% 15% / 0.08);
-    --shadow-glow: 0 0 40px hsl(221 83% 63% / 0.25);
+    --shadow-elegant: 0 10px 40px -10px hsl(221 83% 53% / 0.2);
+    --shadow-card: 0 4px 20px -2px hsl(220 20% 15% / 0.1);
+    --shadow-glow: 0 0 60px hsl(221 83% 63% / 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
   }
 }
 

@@ -8,11 +8,22 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-accent/30 to-background">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary-glow/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }} />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background">
+      {/* 3D Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Large gradient orbs */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-primary/20 to-primary-glow/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-tl from-primary-glow/20 to-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        
+        {/* Floating geometric shapes */}
+        <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-primary/20 rounded-lg rotate-45 animate-float" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-primary-glow/20 rounded-full animate-float" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-gradient-to-br from-primary/10 to-transparent rounded-lg animate-float" style={{ animationDelay: '4s' }} />
+        
+        {/* Shimmer effect */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-shimmer" />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">

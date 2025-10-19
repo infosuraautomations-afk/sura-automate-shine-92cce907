@@ -29,27 +29,27 @@ export const Chatbot = () => {
       {/* Chatbot Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-primary text-primary-foreground shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-110 animate-float"
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-glow hover:shadow-glow hover:scale-110 transition-all duration-500 animate-float"
       >
         {isOpen ? (
           <X className="w-6 h-6 mx-auto" />
         ) : (
-          <MessageCircle className="w-6 h-6 mx-auto" />
+          <MessageCircle className="w-6 h-6 mx-auto animate-pulse" />
         )}
       </button>
 
       {/* Chatbot Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[500px] rounded-2xl bg-card border border-border shadow-elegant animate-scale-in overflow-hidden flex flex-col">
+        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[500px] rounded-2xl bg-card/95 backdrop-blur-md border border-border shadow-glow animate-scale-in overflow-hidden flex flex-col">
           {/* Header */}
-          <div className="p-4 bg-primary text-primary-foreground flex items-center justify-between">
+          <div className="p-4 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center animate-pulse">
                 <MessageCircle className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="font-semibold">Sura Assistant</h3>
-                <p className="text-xs opacity-90">Online now</p>
+                <p className="text-xs opacity-90">Online • Ready to help</p>
               </div>
             </div>
           </div>
@@ -59,38 +59,38 @@ export const Chatbot = () => {
             {messages.map((message, index) => (
               <div
                 key={index}
-                className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
+                className={`flex ${message.type === "user" ? "justify-end" : "justify-start"} animate-fade-in`}
               >
                 <div
-                  className={`max-w-[80%] p-3 rounded-lg ${
+                  className={`max-w-[80%] p-3 rounded-lg shadow-sm ${
                     message.type === "user"
-                      ? "bg-primary text-primary-foreground"
+                      ? "bg-gradient-to-br from-primary to-primary-glow text-primary-foreground"
                       : "bg-muted text-foreground"
                   }`}
                 >
-                  <p className="text-sm">{message.text}</p>
+                  <p className="text-sm leading-relaxed">{message.text}</p>
                 </div>
               </div>
             ))}
 
             {/* Quick Options */}
             {messages.length === 1 && (
-              <div className="space-y-2 pt-2">
+              <div className="space-y-2 pt-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>
                 <button
                   onClick={() => handleOptionClick("Get a Quote")}
-                  className="w-full p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all duration-200 text-left text-sm font-medium"
+                  className="w-full p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all duration-300 text-left text-sm font-medium hover:scale-[1.02] hover:shadow-md"
                 >
                   📋 Get a Quote
                 </button>
                 <button
                   onClick={() => handleOptionClick("Order Service")}
-                  className="w-full p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all duration-200 text-left text-sm font-medium"
+                  className="w-full p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all duration-300 text-left text-sm font-medium hover:scale-[1.02] hover:shadow-md"
                 >
                   🛒 Order Service
                 </button>
                 <button
                   onClick={() => handleOptionClick("Talk to Support")}
-                  className="w-full p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all duration-200 text-left text-sm font-medium"
+                  className="w-full p-3 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all duration-300 text-left text-sm font-medium hover:scale-[1.02] hover:shadow-md"
                 >
                   💬 Talk to Support
                 </button>
@@ -99,9 +99,9 @@ export const Chatbot = () => {
           </div>
 
           {/* Footer */}
-          <div className="p-4 border-t border-border">
+          <div className="p-4 border-t border-border bg-muted/30">
             <p className="text-xs text-muted-foreground text-center">
-              For immediate assistance, email us or WhatsApp
+              For immediate assistance, email or WhatsApp us
             </p>
           </div>
         </div>

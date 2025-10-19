@@ -11,10 +11,15 @@ export const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-accent/20">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-b from-background to-accent/10 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="p-8 md:p-12 rounded-2xl bg-card border border-border shadow-elegant hover:shadow-glow transition-all duration-300 animate-scale-in">
+          <div className="p-8 md:p-12 rounded-2xl bg-card/80 backdrop-blur-sm border border-border shadow-glow hover:shadow-glow transition-all duration-500 animate-scale-in">
             {/* Header */}
             <div className="text-center space-y-4 mb-8">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -30,15 +35,15 @@ export const Contact = () => {
               {/* Email */}
               <button
                 onClick={handleEmailClick}
-                className="group p-6 rounded-xl bg-background border-2 border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary-glow/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div className="text-left">
                     <p className="text-sm font-medium text-muted-foreground mb-1">Email Us</p>
-                    <p className="text-foreground font-semibold group-hover:text-primary transition-colors">
+                    <p className="text-foreground font-semibold group-hover:text-primary transition-colors duration-300">
                       infosuraautomations@gmail.com
                     </p>
                   </div>
@@ -48,15 +53,15 @@ export const Contact = () => {
               {/* WhatsApp */}
               <button
                 onClick={handleWhatsAppClick}
-                className="group p-6 rounded-xl bg-background border-2 border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary-glow/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     <MessageCircle className="w-6 h-6 text-primary" />
                   </div>
                   <div className="text-left">
                     <p className="text-sm font-medium text-muted-foreground mb-1">WhatsApp</p>
-                    <p className="text-foreground font-semibold group-hover:text-primary transition-colors">
+                    <p className="text-foreground font-semibold group-hover:text-primary transition-colors duration-300">
                       +977 9807470285
                     </p>
                   </div>
@@ -69,7 +74,7 @@ export const Contact = () => {
               <Button
                 onClick={handleWhatsAppClick}
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 shadow-elegant hover:shadow-glow transition-all duration-300"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 shadow-elegant hover:shadow-glow hover:scale-105 transition-all duration-500"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Start a Conversation

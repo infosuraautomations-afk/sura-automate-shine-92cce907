@@ -33,8 +33,14 @@ const reviews = [
 
 export const Reviews = () => {
   return (
-    <section className="py-20 bg-background overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-b from-accent/10 to-background overflow-hidden relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-primary-glow/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Header */}
           <div className="text-center space-y-4 animate-fade-in">
@@ -51,13 +57,13 @@ export const Reviews = () => {
             {reviews.map((review, index) => (
               <div
                 key={index}
-                className="group p-6 rounded-xl bg-card border border-border hover:border-primary/30 shadow-card hover:shadow-elegant transition-all duration-300 animate-fade-in-up"
+                className="group p-6 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/30 shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-1 animate-fade-in-up"
                 style={{ animationDelay: `${(index % 12) * 0.05}s` }}
               >
                 {/* Stars */}
                 <div className="flex gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    <Star key={i} className="w-4 h-4 fill-primary text-primary group-hover:scale-110 transition-transform" style={{ transitionDelay: `${i * 0.05}s` }} />
                   ))}
                 </div>
 
@@ -68,7 +74,7 @@ export const Reviews = () => {
 
                 {/* Author */}
                 <div className="border-t border-border pt-4">
-                  <p className="font-semibold text-foreground">{review.name}</p>
+                  <p className="font-semibold text-foreground group-hover:text-primary transition-colors">{review.name}</p>
                   <p className="text-sm text-muted-foreground">{review.role}</p>
                 </div>
               </div>
