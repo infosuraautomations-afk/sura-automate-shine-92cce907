@@ -1,4 +1,4 @@
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Contact = () => {
@@ -8,6 +8,10 @@ export const Contact = () => {
 
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/9779807470285", "_blank");
+  };
+
+  const handleInstagramClick = () => {
+    window.open("https://www.instagram.com/surajbishwokarmaa/", "_blank");
   };
 
   return (
@@ -31,7 +35,7 @@ export const Contact = () => {
             </div>
 
             {/* Contact Methods */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Email */}
               <button
                 onClick={handleEmailClick}
@@ -63,6 +67,24 @@ export const Contact = () => {
                     <p className="text-sm font-medium text-muted-foreground mb-1">WhatsApp</p>
                     <p className="text-foreground font-semibold group-hover:text-primary transition-colors duration-300">
                       +977 9807470285
+                    </p>
+                  </div>
+                </div>
+              </button>
+
+              {/* Instagram */}
+              <button
+                onClick={handleInstagramClick}
+                className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary-glow/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <Instagram className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-sm font-medium text-muted-foreground mb-1">Instagram</p>
+                    <p className="text-foreground font-semibold group-hover:text-primary transition-colors duration-300">
+                      @surajbishwokarmaa
                     </p>
                   </div>
                 </div>

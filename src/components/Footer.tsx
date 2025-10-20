@@ -55,7 +55,7 @@ export const Footer = () => {
                   <span className="text-sm">infosuraautomations@gmail.com</span>
                 </a>
                 <a
-                  href="https://wa.me/+9779807470285"
+                  href="https://wa.me/9779807470285"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"

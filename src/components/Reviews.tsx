@@ -48,13 +48,23 @@ export const Reviews = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Header */}
-          <div className="text-center space-y-4 opacity-0 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+          <div className="text-center space-y-6 mb-4 opacity-0 animate-fade-in">
+            <div className="inline-block">
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider px-4 py-1 rounded-full bg-primary/10 border border-primary/20 animate-pulse">
+                Testimonials
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-scale-in">
               What Our Clients Say
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Real experiences from people who automated with us
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+              Real experiences from people who transformed their business with our automation solutions
             </p>
+            <div className="flex justify-center gap-2 mt-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-6 h-6 fill-primary text-primary animate-bounce" style={{ animationDelay: `${i * 0.1}s` }} />
+              ))}
+            </div>
           </div>
 
           {/* Reviews Grid */}
