@@ -74,7 +74,14 @@ export const Footer = () => {
                 © 2025 Sura Automations. All rights reserved.
               </p>
               <p className="text-background/70 text-sm text-center md:text-right">
-                Developed by <span className="font-semibold text-background">Suraj Bishwokarma</span>
+                Developed by <a 
+                  href="https://www.instagram.com/surajbishwokarmaa/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-semibold text-background hover:text-primary transition-colors duration-300"
+                >
+                  Suraj Bishwokarma
+                </a>
               </p>
             </div>
           </div>

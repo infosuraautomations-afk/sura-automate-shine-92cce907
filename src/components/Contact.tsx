@@ -69,17 +69,6 @@ export const Contact = () => {
               </button>
             </div>
 
-            {/* CTA */}
-            <div className="mt-8 text-center">
-              <Button
-                onClick={handleWhatsAppClick}
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 shadow-elegant hover:shadow-glow hover:scale-105 transition-all duration-500"
-              >
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Start a Conversation
-              </Button>
-            </div>
           </div>
         </div>
       </div>
