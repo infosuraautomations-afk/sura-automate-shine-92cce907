@@ -55,7 +55,7 @@ export const Reviews = () => {
               </span>
             </div>
             <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-scale-in">
-              What Our Clients Say
+              Our Reviews
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
               Real experiences from people who transformed their business with our automation solutions

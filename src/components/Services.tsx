@@ -1,49 +1,69 @@
 import { Bot, Zap, Globe, BarChart3, Link2, Briefcase } from "lucide-react";
 import { Button } from "./ui/button";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const services = [
   {
     icon: Bot,
     title: "AI Chatbots",
     description: "Intelligent conversational AI that engages customers 24/7 and automates support.",
-    highlight: "24/7 Support"
+    highlight: "24/7 Support",
+    details: "Transform your customer service with AI-powered chatbots that understand context and provide instant, accurate responses. Our chatbots integrate seamlessly with your existing systems, handle multiple languages, and learn from every interaction to improve over time. Perfect for e-commerce, support teams, and lead generation. Reduce response times by 90% while maintaining a personal touch that keeps customers engaged and satisfied."
   },
   {
     icon: Zap,
     title: "Automation Systems",
     description: "Streamline repetitive tasks and workflows to save time and reduce errors.",
-    highlight: "Save Time"
+    highlight: "Save Time",
+    details: "Eliminate manual work and boost productivity with intelligent automation systems. We automate data entry, report generation, email workflows, inventory management, and more. Our solutions integrate with popular tools like Excel, Google Sheets, CRM systems, and databases. Free your team to focus on strategic work while automation handles the repetitive tasks with 99.9% accuracy and lightning speed."
   },
   {
     icon: Globe,
     title: "Website & App Development",
     description: "Modern, responsive websites and applications built with cutting-edge technology.",
-    highlight: "Modern Tech"
+    highlight: "Modern Tech",
+    details: "Create stunning, high-performance websites and applications that captivate your audience. We build responsive designs that work flawlessly across all devices, implement SEO best practices for maximum visibility, and ensure fast loading times. From landing pages to complex web applications, our development follows industry standards and includes ongoing support to keep your digital presence ahead of the curve."
   },
   {
     icon: BarChart3,
     title: "Smart Dashboards",
     description: "Data visualization and analytics dashboards for better business insights.",
-    highlight: "Data-Driven"
+    highlight: "Data-Driven",
+    details: "Make data-driven decisions with real-time dashboards that turn complex data into actionable insights. Our custom dashboards pull data from multiple sources, display KPIs that matter to your business, and update automatically. Track sales, monitor operations, analyze customer behavior, and measure marketing ROI—all in one beautiful, intuitive interface. Export reports, set up alerts, and access insights from anywhere."
   },
   {
     icon: Link2,
     title: "API Integrations",
     description: "Seamlessly connect your tools and platforms for unified workflows.",
-    highlight: "Seamless"
+    highlight: "Seamless",
+    details: "Break down data silos by connecting all your business tools and platforms. We integrate CRMs, payment gateways, marketing platforms, shipping providers, accounting software, and more. Enable automatic data sync, eliminate double-entry, and create seamless workflows across your entire tech stack. Our integrations are secure, reliable, and built to scale with your business needs."
   },
   {
     icon: Briefcase,
     title: "Business Process Automation",
     description: "End-to-end automation solutions tailored to your business needs.",
-    highlight: "Custom Solutions"
+    highlight: "Custom Solutions",
+    details: "Optimize your entire business operations with custom-built automation workflows. We analyze your processes, identify bottlenecks, and design automation solutions that increase efficiency by up to 80%. From customer onboarding to invoicing, from inventory management to employee workflows—we create comprehensive automation systems tailored to your unique business requirements. Get detailed analytics and continuous optimization to maximize ROI."
   },
 ];
 
 export const Services = () => {
+  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleGetStarted = (service: typeof services[0]) => {
+    setSelectedService(service);
   };
 
   return (
@@ -99,7 +119,7 @@ export const Services = () => {
                   
                   <Button 
                     variant="outline" 
-                    onClick={scrollToContact}
+                    onClick={() => handleGetStarted(service)}
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-300 hover:scale-105"
                   >
                     Get Started
@@ -110,6 +130,48 @@ export const Services = () => {
           </div>
         </div>
       </div>
+
+      {/* Service Details Dialog */}
+      <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <div className="flex items-center gap-4 mb-4">
+              {selectedService && (
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/10 to-primary-glow/10 flex items-center justify-center">
+                  <selectedService.icon className="w-8 h-8 text-primary" />
+                </div>
+              )}
+              <div>
+                <DialogTitle className="text-2xl">{selectedService?.title}</DialogTitle>
+                <span className="inline-block px-3 py-1 mt-2 text-xs font-semibold text-primary bg-primary/10 rounded-full">
+                  {selectedService?.highlight}
+                </span>
+              </div>
+            </div>
+            <DialogDescription className="text-base leading-relaxed text-foreground">
+              {selectedService?.details}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex gap-4 mt-6">
+            <Button 
+              onClick={() => {
+                setSelectedService(null);
+                scrollToContact();
+              }}
+              className="flex-1"
+            >
+              Contact Us
+            </Button>
+            <Button 
+              variant="outline"
+              onClick={() => setSelectedService(null)}
+              className="flex-1"
+            >
+              Close
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
