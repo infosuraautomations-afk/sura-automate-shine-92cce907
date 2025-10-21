@@ -1,19 +1,6 @@
 import { Mail, MessageCircle, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export const Contact = () => {
-  const handleEmailClick = () => {
-    window.location.href = "mailto:infosuraautomations@gmail.com";
-  };
-
-  const handleWhatsAppClick = () => {
-    window.open("https://wa.me/9779807470285", "_blank");
-  };
-
-  const handleInstagramClick = () => {
-    window.open("https://www.instagram.com/surajbishwokarmaa/", "_blank");
-  };
-
   return (
     <section className="py-20 bg-gradient-to-b from-background to-accent/10 relative overflow-hidden">
       {/* Background decoration */}
@@ -37,9 +24,9 @@ export const Contact = () => {
             {/* Contact Methods */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Email */}
-              <button
-                onClick={handleEmailClick}
-                className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
+              <a
+                href="mailto:infosuraautomations@gmail.com"
+                className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer block"
               >
                 <div className="flex flex-col items-center text-center gap-4">
                   <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary-glow/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
@@ -52,12 +39,14 @@ export const Contact = () => {
                     </p>
                   </div>
                 </div>
-              </button>
+              </a>
 
               {/* WhatsApp */}
-              <button
-                onClick={handleWhatsAppClick}
-                className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
+              <a
+                href="https://wa.me/9779807470285"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer block"
               >
                 <div className="flex flex-col items-center text-center gap-4">
                   <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary-glow/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
@@ -70,12 +59,14 @@ export const Contact = () => {
                     </p>
                   </div>
                 </div>
-              </button>
+              </a>
 
               {/* Instagram */}
-              <button
-                onClick={handleInstagramClick}
-                className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
+              <a
+                href="https://www.instagram.com/surajbishwokarmaa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer block"
               >
                 <div className="flex flex-col items-center text-center gap-4">
                   <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary-glow/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
@@ -88,7 +79,7 @@ export const Contact = () => {
                     </p>
                   </div>
                 </div>
-              </button>
+              </a>
             </div>
 
           </div>

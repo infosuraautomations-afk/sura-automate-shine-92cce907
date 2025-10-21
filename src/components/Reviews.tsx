@@ -47,8 +47,8 @@ export const Reviews = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto space-y-12">
-          {/* Header */}
-          <div className="text-center space-y-6 mb-4 opacity-0 animate-fade-in">
+          {/* Header - Moved to top */}
+          <div className="text-center space-y-6 opacity-0 animate-fade-in">
             <div className="inline-block">
               <span className="text-sm font-semibold text-primary uppercase tracking-wider px-4 py-1 rounded-full bg-primary/10 border border-primary/20 animate-pulse">
                 Testimonials
