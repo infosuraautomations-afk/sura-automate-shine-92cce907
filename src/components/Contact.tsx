@@ -42,12 +42,12 @@ export const Contact = () => {
                 className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
               >
                 <div className="flex flex-col items-center text-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary-glow/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                    <Mail className="w-6 h-6 text-primary" />
+                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary-glow/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <Mail className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground mb-1">Email Us</p>
-                    <p className="text-foreground font-semibold group-hover:text-primary transition-colors duration-300 break-all text-sm">
+                    <h3 className="text-lg font-bold text-foreground mb-2">Email Us</h3>
+                    <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors duration-300 break-all">
                       infosuraautomations@gmail.com
                     </p>
                   </div>
@@ -60,12 +60,12 @@ export const Contact = () => {
                 className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
               >
                 <div className="flex flex-col items-center text-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary-glow/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                    <MessageCircle className="w-6 h-6 text-primary" />
+                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary-glow/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <MessageCircle className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground mb-1">WhatsApp</p>
-                    <p className="text-foreground font-semibold group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-lg font-bold text-foreground mb-2">WhatsApp</h3>
+                    <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors duration-300">
                       +977 9807470285
                     </p>
                   </div>
@@ -78,12 +78,12 @@ export const Contact = () => {
                 className="group p-6 rounded-xl bg-background/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
               >
                 <div className="flex flex-col items-center text-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary-glow/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                    <Instagram className="w-6 h-6 text-primary" />
+                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-primary-glow/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <Instagram className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground mb-1">Instagram</p>
-                    <p className="text-foreground font-semibold group-hover:text-primary transition-colors duration-300 break-all">
+                    <h3 className="text-lg font-bold text-foreground mb-2">Instagram</h3>
+                    <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors duration-300 break-all">
                       @surajbishwokarmaa
                     </p>
                   </div>
