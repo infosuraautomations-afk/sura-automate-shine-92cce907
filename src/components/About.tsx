@@ -1,20 +1,20 @@
-import { Bot, Zap, Globe, BarChart } from "lucide-react";
+import { Globe, Bot, Zap, BarChart } from "lucide-react";
 
 const features = [
   {
+    icon: Globe,
+    title: "Custom Websites",
+    description: "Modern, responsive websites tailored to any niche or industry",
+  },
+  {
     icon: Bot,
     title: "AI Chatbots",
-    description: "Intelligent conversational AI that engages customers 24/7",
+    description: "Smart chatbots that engage and support your customers 24/7",
   },
   {
     icon: Zap,
     title: "Automation",
     description: "Streamline workflows and eliminate repetitive tasks",
-  },
-  {
-    icon: Globe,
-    title: "Smart Websites",
-    description: "Modern, responsive web solutions that convert",
   },
   {
     icon: BarChart,
@@ -40,8 +40,7 @@ export const About = () => {
               Why Sura Automations?
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We help companies save time and scale faster through automation and AI tools. 
-              From smart dashboards to intelligent chatbots — we build systems that work for you.
+              We specialize in building beautiful, high-performance websites for every type of business — and powering them with intelligent AI chatbots. Whatever your niche, we craft digital experiences that convert visitors into customers.
             </p>
           </div>
 
