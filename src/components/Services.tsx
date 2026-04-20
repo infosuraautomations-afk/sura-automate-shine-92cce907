@@ -11,11 +11,18 @@ import {
 
 const services = [
   {
+    icon: Globe,
+    title: "Website & App Development",
+    description: "Modern, responsive websites and applications built for any niche or industry.",
+    highlight: "Our Specialty",
+    details: "Websites are our core craft. We design and build stunning, high-performance websites and web apps for every type of business — e-commerce, restaurants, real estate, agencies, SaaS, portfolios, education, healthcare, and more. Each site is fully responsive, SEO-optimized, lightning fast, and tailored to your brand. From sleek landing pages to complex multi-page platforms with custom features, we deliver pixel-perfect results that turn visitors into loyal customers."
+  },
+  {
     icon: Bot,
     title: "AI Chatbots",
     description: "Intelligent conversational AI that engages customers 24/7 and automates support.",
     highlight: "24/7 Support",
-    details: "Transform your customer service with AI-powered chatbots that understand context and provide instant, accurate responses. Our chatbots integrate seamlessly with your existing systems, handle multiple languages, and learn from every interaction to improve over time. Perfect for e-commerce, support teams, and lead generation. Reduce response times by 90% while maintaining a personal touch that keeps customers engaged and satisfied."
+    details: "Transform your customer service with AI-powered chatbots that understand context and provide instant, accurate responses. Our chatbots integrate seamlessly with your website and existing systems, handle multiple languages, and learn from every interaction to improve over time. Perfect for e-commerce, support teams, and lead generation. Reduce response times by 90% while maintaining a personal touch that keeps customers engaged and satisfied."
   },
   {
     icon: Zap,
@@ -23,13 +30,6 @@ const services = [
     description: "Streamline repetitive tasks and workflows to save time and reduce errors.",
     highlight: "Save Time",
     details: "Eliminate manual work and boost productivity with intelligent automation systems. We automate data entry, report generation, email workflows, inventory management, and more. Our solutions integrate with popular tools like Excel, Google Sheets, CRM systems, and databases. Free your team to focus on strategic work while automation handles the repetitive tasks with 99.9% accuracy and lightning speed."
-  },
-  {
-    icon: Globe,
-    title: "Website & App Development",
-    description: "Modern, responsive websites and applications built with cutting-edge technology.",
-    highlight: "Modern Tech",
-    details: "Create stunning, high-performance websites and applications that captivate your audience. We build responsive designs that work flawlessly across all devices, implement SEO best practices for maximum visibility, and ensure fast loading times. From landing pages to complex web applications, our development follows industry standards and includes ongoing support to keep your digital presence ahead of the curve."
   },
   {
     icon: BarChart3,
