@@ -31,21 +31,21 @@ export const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 animate-scale-in">
             <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-semibold">AI-Powered Automation Solutions</span>
+            <span className="text-sm font-semibold">Websites & AI Chatbots for Every Business</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
-            Automate Smarter.
+            Stunning Websites.
             <br />
             <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-              Work Faster.
+              Smart Chatbots.
             </span>
           </h1>
 
           {/* Subtext */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Sura Automations builds intelligent AI systems, chatbots, and custom automation for every business type.
+            Sura Automations designs modern, high-converting websites for every niche — from startups to enterprises — and builds AI chatbots that engage your customers 24/7.
           </p>
 
           {/* CTA Buttons */}
