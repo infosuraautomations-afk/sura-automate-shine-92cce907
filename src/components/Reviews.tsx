@@ -21,37 +21,33 @@ const reviews = [
 
 export const Reviews = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-accent/10 to-background overflow-hidden relative">
+    <section id="reviews" className="py-20 bg-gradient-to-b from-accent/10 to-background overflow-hidden relative">
       {/* 3D Floating Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" style={{ transform: 'translateZ(50px)' }} />
-        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s', transform: 'translateZ(30px)' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '0.8s', transform: 'translateZ(20px)' }} />
-        
-        {/* 3D Geometric shapes */}
-        <div className="absolute top-40 right-20 w-32 h-32 border-2 border-primary/30 rounded-lg animate-float rotate-45" style={{ animationDelay: '0.3s', transform: 'rotateX(45deg) rotateY(45deg)' }} />
-        <div className="absolute bottom-40 left-20 w-24 h-24 border-2 border-accent/30 rounded-full animate-float" style={{ animationDelay: '1s', transform: 'rotateX(30deg)' }} />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '0.8s' }} />
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto space-y-12">
-          {/* Header - Moved to top */}
-          <div className="text-center space-y-6 opacity-0 animate-fade-in">
-            <div className="inline-block">
-              <span className="text-sm font-semibold text-primary uppercase tracking-wider px-4 py-1 rounded-full bg-primary/10 border border-primary/20 animate-pulse">
-                Testimonials
-              </span>
+          {/* Header */}
+          <div className="text-center space-y-4 animate-fade-in">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
+              Testimonials
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-scale-in">
+            <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
               Our Reviews
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-              Real experiences from people who transformed their business with our automation solutions
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Honest words from clients we've built websites and automations for.
             </p>
-            <div className="flex justify-center gap-2 mt-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+            <div className="flex justify-center items-center gap-2 pt-2 flex-wrap">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-primary text-primary animate-bounce" style={{ animationDelay: `${i * 0.1}s` }} />
+                <Star key={i} className="w-6 h-6 fill-primary text-primary" />
               ))}
+              <span className="ml-2 text-foreground font-semibold">5.0</span>
+              <span className="text-muted-foreground text-sm">· based on client feedback</span>
             </div>
           </div>
 
