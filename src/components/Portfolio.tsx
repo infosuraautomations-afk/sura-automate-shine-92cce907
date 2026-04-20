@@ -1,33 +1,33 @@
-import { ExternalLink, GraduationCap, Apple, Scissors } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
+import schoolPortalImg from "@/assets/portfolio-school-portal.png";
+import calorieCounterImg from "@/assets/portfolio-calorie-counter.png";
+import buzzEditImg from "@/assets/portfolio-buzzedit.png";
 
 const projects = [
   {
-    icon: GraduationCap,
+    image: schoolPortalImg,
     title: "School Result Portal",
     category: "Education",
     description:
-      "A modern result publishing platform for schools — students can securely access their results with a clean, fast, mobile-friendly interface.",
+      "A modern result publishing platform — students log in with their parent's number to securely access their results on any device.",
     url: "https://sura-schoolportal.netlify.app/",
-    gradient: "from-blue-500/20 to-cyan-500/20",
   },
   {
-    icon: Apple,
-    title: "Calorie Counter",
+    image: calorieCounterImg,
+    title: "Cal Sura — Calorie Tracker",
     category: "Health & Fitness",
     description:
-      "An intuitive calorie tracking web app that helps users log meals, monitor nutrition, and reach their fitness goals with ease.",
+      "An intelligent nutrition tracker that helps users log meals, monitor calories, and stay on top of their fitness goals.",
     url: "https://cal-sura.netlify.app",
-    gradient: "from-green-500/20 to-emerald-500/20",
   },
   {
-    icon: Scissors,
-    title: "BuzzEdit Agency",
+    image: buzzEditImg,
+    title: "Buzz Edit Agency",
     category: "Creative Agency",
     description:
-      "A bold, high-converting website for a video editing agency — showcasing services, portfolio, and driving client inquiries.",
+      "A bold, dark-themed website for a professional video editing agency — designed to showcase work and convert visitors into clients.",
     url: "https://buzzedit.netlify.app",
-    gradient: "from-purple-500/20 to-pink-500/20",
   },
 ];
 
@@ -49,7 +49,7 @@ export const Portfolio = () => {
               Websites We've Built
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              A glimpse of the diverse projects we've delivered — across education, health, and creative industries.
+              Real projects, real clients — across education, health, and creative industries.
             </p>
           </div>
 
@@ -60,9 +60,14 @@ export const Portfolio = () => {
                 className="group relative rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className={`h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
-                  <project.icon className="w-20 h-20 text-primary/70 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/40 to-transparent" />
+                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} website preview`}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-card/10 to-transparent" />
                 </div>
 
                 <div className="p-6 space-y-4">
@@ -92,6 +97,10 @@ export const Portfolio = () => {
               </div>
             ))}
           </div>
+
+          <p className="text-center text-sm text-muted-foreground italic">
+            ...and many more websites built for businesses across different niches.
+          </p>
         </div>
       </div>
     </section>
