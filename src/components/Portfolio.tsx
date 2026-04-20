@@ -1,0 +1,99 @@
+import { ExternalLink, GraduationCap, Apple, Scissors } from "lucide-react";
+import { Button } from "./ui/button";
+
+const projects = [
+  {
+    icon: GraduationCap,
+    title: "School Result Portal",
+    category: "Education",
+    description:
+      "A modern result publishing platform for schools — students can securely access their results with a clean, fast, mobile-friendly interface.",
+    url: "https://sura-schoolportal.netlify.app/",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+  },
+  {
+    icon: Apple,
+    title: "Calorie Counter",
+    category: "Health & Fitness",
+    description:
+      "An intuitive calorie tracking web app that helps users log meals, monitor nutrition, and reach their fitness goals with ease.",
+    url: "https://cal-sura.netlify.app",
+    gradient: "from-green-500/20 to-emerald-500/20",
+  },
+  {
+    icon: Scissors,
+    title: "BuzzEdit Agency",
+    category: "Creative Agency",
+    description:
+      "A bold, high-converting website for a video editing agency — showcasing services, portfolio, and driving client inquiries.",
+    url: "https://buzzedit.netlify.app",
+    gradient: "from-purple-500/20 to-pink-500/20",
+  },
+];
+
+export const Portfolio = () => {
+  return (
+    <section id="portfolio" className="py-20 bg-gradient-to-b from-background to-accent/10 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary-glow/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-6xl mx-auto space-y-14">
+          <div className="text-center space-y-4 animate-fade-in">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
+              Our Recent Work
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Websites We've Built
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              A glimpse of the diverse projects we've delivered — across education, health, and creative industries.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="group relative rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div className={`h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
+                  <project.icon className="w-20 h-20 text-primary/70 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/40 to-transparent" />
+                </div>
+
+                <div className="p-6 space-y-4">
+                  <div className="space-y-2">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+                      {project.category}
+                    </span>
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full group/btn border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                  >
+                    <a href={project.url} target="_blank" rel="noopener noreferrer">
+                      Visit Site
+                      <ExternalLink className="ml-2 w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
