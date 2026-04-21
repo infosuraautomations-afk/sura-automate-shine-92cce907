@@ -45,11 +45,22 @@ export const Reviews = () => {
               Honest words from clients we've built websites and automations for.
             </p>
             <div className="flex justify-center items-center gap-2 pt-2 flex-wrap">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-primary text-primary" />
-              ))}
-              <span className="ml-2 text-foreground font-semibold">5.0</span>
-              <span className="text-muted-foreground text-sm">· based on client feedback</span>
+              {(() => {
+                const avg = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length;
+                const rounded = Math.round(avg);
+                return (
+                  <>
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-6 h-6 ${i < rounded ? "fill-primary text-primary" : "text-muted-foreground"}`}
+                      />
+                    ))}
+                    <span className="ml-2 text-foreground font-semibold">{avg.toFixed(1)}</span>
+                    <span className="text-muted-foreground text-sm">· based on {reviews.length} client reviews</span>
+                  </>
+                );
+              })()}
             </div>
           </div>
 
