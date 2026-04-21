@@ -78,7 +78,10 @@ export const Reviews = () => {
                 {/* Stars */}
                 <div className="flex gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    <Star
+                      key={i}
+                      className={`w-4 h-4 ${i < review.rating ? "fill-primary text-primary" : "text-muted-foreground/40"}`}
+                    />
                   ))}
                 </div>
 
