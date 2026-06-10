@@ -26,16 +26,16 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+      <div className="container mx-auto px-4 py-16 sm:py-20 relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 animate-fade-in">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 animate-scale-in">
-            <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-semibold">Websites & AI Chatbots for Every Business</span>
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 animate-scale-in">
+            <Sparkles className="w-4 h-4 flex-shrink-0" />
+            <span className="text-xs sm:text-sm font-semibold">Founded by Suraj Bishwokarma · Cafés, Hotels & Beyond</span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground leading-[1.1]">
             Stunning Websites.
             <br />
             <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
@@ -44,8 +44,8 @@ export const Hero = () => {
           </h1>
 
           {/* Subtext */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Sura Automations designs modern, high-converting websites for every niche — from startups to enterprises — and builds AI chatbots that engage your customers 24/7.
+          <p className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
+            Sura Automations crafts modern, high-converting websites — especially for cafés, hotels and restaurants — and builds AI chatbots that engage your customers 24/7.
           </p>
 
           {/* CTA Buttons */}
