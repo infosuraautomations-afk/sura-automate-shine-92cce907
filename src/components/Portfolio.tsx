@@ -3,8 +3,28 @@ import { Button } from "./ui/button";
 import schoolPortalImg from "@/assets/portfolio-school-portal.png";
 import calorieCounterImg from "@/assets/portfolio-calorie-counter.png";
 import buzzEditImg from "@/assets/portfolio-buzzedit.png";
+import kanchanMomoImg from "@/assets/portfolio-kanchan-momo.png";
+import hygieneCafeImg from "@/assets/portfolio-hygiene-cafe.png";
 
 const projects = [
+  {
+    image: kanchanMomoImg,
+    title: "Kanchan Momo",
+    category: "Hotel & Restaurant",
+    description:
+      "A B2B ordering platform for one of Nepal's beloved momo brands — letting hotels and restaurants place wholesale orders with a clean, branded login experience.",
+    url: "https://kanchanmomos.netlify.app/",
+    featured: true,
+  },
+  {
+    image: hygieneCafeImg,
+    title: "Hygiene Kitchen Cafe",
+    category: "Cafe & Food Delivery",
+    description:
+      "A vibrant online ordering site for a busy cafe in Gargare, Rupandehi — quick phone-based login and a menu built to make customers hungry on first scroll.",
+    url: "https://hygienecafe.netlify.app/",
+    featured: true,
+  },
   {
     image: schoolPortalImg,
     title: "School Result Portal",
