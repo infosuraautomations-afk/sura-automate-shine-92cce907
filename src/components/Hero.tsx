@@ -36,10 +36,10 @@ export const Hero = () => {
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground leading-[1.1]">
-            Stunning Websites.
+            Cafe Websites
             <br />
             <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-              Smart Chatbots.
+              That Bring Customers.
             </span>
           </h1>
 
