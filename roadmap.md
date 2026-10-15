@@ -1,3 +1,3 @@
-- [ ] Broaden website and assistant messaging to all industries.
-- [ ] Replace café decoration with lightweight scroll motion and reduce loading/rendering costs.
-- [ ] Add an interactive real-project spotlight and verify desktop/mobile flows.
+- [x] Broaden website and assistant messaging to all industries.
+- [x] Replace café decoration with lightweight scroll motion and reduce loading/rendering costs.
+- [x] Add an interactive real-project spotlight and verify desktop/mobile flows.
