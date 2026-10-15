@@ -8,44 +8,28 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background">
-      {/* 3D Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Large gradient orbs */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-primary/20 to-primary-glow/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-tl from-primary-glow/20 to-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        
-        {/* Floating geometric shapes */}
-        <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-primary/20 rounded-lg rotate-45 animate-float" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-primary-glow/20 rounded-full animate-float" style={{ animationDelay: '3s' }} />
-        <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-gradient-to-br from-primary/10 to-transparent rounded-lg animate-float" style={{ animationDelay: '4s' }} />
-        
-        {/* Shimmer effect */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-shimmer" />
-        </div>
-      </div>
+    <section className="relative flex items-center justify-center overflow-hidden hero-intro">
 
       <div className="container mx-auto px-4 py-16 sm:py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 animate-fade-in">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 animate-scale-in">
             <Sparkles className="w-4 h-4 flex-shrink-0" />
-            <span className="text-xs sm:text-sm font-semibold">Founded by Suraj Bishwokarma · Cafés, Hotels & Beyond</span>
+            <span className="text-xs sm:text-sm font-semibold">Founded by Suraj Bishwokarma · Built for every industry</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground leading-[1.1]">
-            Cafe Websites
+            Websites for
             <br />
-            <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-              That Bring Customers.
+            <span className="text-primary">
+              Every Business.
             </span>
           </h1>
 
           {/* Subtext */}
           <p className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
-            Sura Automations crafts modern, high-converting websites — especially for cafés, hotels and restaurants — and builds AI chatbots that engage your customers 24/7.
+            Sura Automations builds websites around your business, not a template. From your first idea to your next big launch — custom websites, AI chatbots, and smarter workflows for every industry.
           </p>
 
           {/* CTA Buttons */}
@@ -61,10 +45,10 @@ export const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("portfolio")}
               className="px-8 py-6 text-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             >
-              Order Now
+              Explore Our Work
             </Button>
           </div>
 

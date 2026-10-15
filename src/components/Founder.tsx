@@ -3,10 +3,6 @@ import { MapPin, Code2, Heart } from "lucide-react";
 export const Founder = () => {
   return (
     <section id="about" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-primary-glow/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
@@ -44,10 +40,10 @@ export const Founder = () => {
                 Hey, I'm <span className="font-semibold text-primary">Suraj Bishwokarma</span> — the founder of Sura Automations. What started as me building little websites for friends' shops has grown into a full agency that ships modern websites and AI chatbots for businesses around the world.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                I'm a bit obsessed with two things: clean, fast-loading websites that actually convert visitors into customers, and smart automations that quietly save business owners hours every week. Most of my early clients were cafés, hotels, and small restaurants here in Nepal — which is exactly why we know that niche inside out.
+                I care about two things: websites that make your business easier to discover, and smart automations that take repetitive work off your plate. Every business is different, so I start with your goals — what your customers need, what makes your work special, and where a better website can help.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Today the team works with cafés, hotels, schools, agencies, gyms, real estate, and online stores. Different industries, same promise: honest pricing, regular updates, and a website you're genuinely proud to share.
+                Whether you're running a school, an agency, a fitness business, an online store, or something completely different, you're welcome here. Let's build something that feels like your business, with clear communication and a website you're proud to share.
               </p>
 
               <div className="grid grid-cols-2 gap-3 pt-2">
