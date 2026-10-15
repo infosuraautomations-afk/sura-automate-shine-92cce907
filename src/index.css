@@ -82,3 +82,22 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+.hero-intro {
+  min-height: min(720px, calc(100svh - 160px));
+}
+
+@media (max-width: 640px) {
+  .hero-intro { min-height: auto; }
+  .animate-float { animation: none; }
+  .backdrop-blur-sm { backdrop-filter: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

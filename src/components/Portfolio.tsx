@@ -54,10 +54,6 @@ const projects = [
 export const Portfolio = () => {
   return (
     <section id="portfolio" className="py-20 bg-gradient-to-b from-background to-accent/10 relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary-glow/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto space-y-14">
@@ -69,7 +65,7 @@ export const Portfolio = () => {
               Websites We've Built
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Real projects, real clients — across education, health, and creative industries.
+              From education and health to creative agencies and commerce — different businesses, thoughtfully built websites.
             </p>
           </div>
 
@@ -77,7 +73,7 @@ export const Portfolio = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group relative rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-fade-in-up"
+                className="group relative rounded-lg bg-card border border-border hover:border-primary/50 shadow-card transition-all duration-300 hover:-translate-y-1 overflow-hidden animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-muted">
@@ -85,6 +81,9 @@ export const Portfolio = () => {
                     src={project.image}
                     alt={`${project.title} website preview`}
                     loading="lazy"
+                    decoding="async"
+                    width="1280"
+                    height="800"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-card/10 to-transparent" />

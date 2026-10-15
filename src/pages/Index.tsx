@@ -8,7 +8,8 @@ import { ContactForm } from "@/components/ContactForm";
 import { Contact } from "@/components/Contact";
 import { Reviews } from "@/components/Reviews";
 import { ReviewForm } from "@/components/ReviewForm";
-import { Chatbot } from "@/components/Chatbot";
+import { ChatLauncher } from "@/components/ChatLauncher";
+import { ProjectSpotlight } from "@/components/ProjectSpotlight";
 import { Footer } from "@/components/Footer";
 import { FloatingShapes } from "@/components/FloatingShapes";
 
@@ -19,6 +20,7 @@ const Index = () => {
       <Navbar />
       <div id="home" className="pt-16 relative z-10">
         <Hero />
+        <ProjectSpotlight />
         <Founder />
         <About />
         <div id="services">
@@ -31,7 +33,7 @@ const Index = () => {
         <ReviewForm />
         <Footer />
       </div>
-      <Chatbot />
+      <ChatLauncher />
     </div>
   );
 };

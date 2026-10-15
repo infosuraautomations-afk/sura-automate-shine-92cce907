@@ -8,18 +8,18 @@ type Msg = { role: "user" | "assistant"; content: string };
 const INITIAL: Msg = {
   role: "assistant",
   content:
-    "👋 Hi, I'm Sura Assistant — Suraj's AI helper. Ask me about websites, AI chatbots, pricing, timelines or our work for cafés & hotels. I'll answer instantly!",
+    "👋 Hi, I'm Sura Assistant — Suraj's AI helper. Tell me about your business or ask about websites, AI chatbots, pricing, timelines, and our work across industries.",
 };
 
 const QUICK = [
-  "I run a cafe — can you build my site?",
-  "How much does a hotel website cost?",
+  "Can you build a website for my business?",
+  "What affects the cost of a website?",
   "How fast can you deliver?",
-  "Show me your work for restaurants",
+  "Show me websites you've built",
 ];
 
-export const Chatbot = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Chatbot = ({ initiallyOpen = false }: { initiallyOpen?: boolean }) => {
+  const [isOpen, setIsOpen] = useState(initiallyOpen);
   const [messages, setMessages] = useState<Msg[]>([INITIAL]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
