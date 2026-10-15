@@ -75,7 +75,7 @@ export const Chatbot = ({ initiallyOpen = false }: { initiallyOpen?: boolean }) 
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? "Close chat" : "Open chat"}
-        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-glow hover:scale-110 transition-all duration-500 animate-float flex items-center justify-center"
+        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary text-primary-foreground shadow-elegant hover:scale-105 transition-transform duration-200 flex items-center justify-center"
       >
         {isOpen ? (
           <X className="w-6 h-6" />

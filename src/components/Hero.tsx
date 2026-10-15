@@ -22,7 +22,7 @@ export const Hero = () => {
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground leading-[1.1]">
             Websites for
             <br />
-            <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+            <span className="text-primary">
               Every Business.
             </span>
           </h1>
