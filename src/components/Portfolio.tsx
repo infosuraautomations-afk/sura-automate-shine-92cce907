@@ -5,8 +5,18 @@ import calorieCounterImg from "@/assets/portfolio-calorie-counter.png";
 import buzzEditImg from "@/assets/portfolio-buzzedit.png";
 import kanchanMomoImg from "@/assets/portfolio-kanchan-momo.png";
 import hygieneCafeImg from "@/assets/portfolio-hygiene-cafe.png";
+import nextokartImg from "@/assets/portfolio-nextokart.png";
 
 const projects = [
+  {
+    image: nextokartImg,
+    title: "Nextokart",
+    category: "E-commerce",
+    description:
+      "An online shop for authentic Nepali products, with cash on delivery so customers can order without worrying about card payments.",
+    url: "https://nextokart.vercel.app/",
+    featured: true,
+  },
   {
     image: kanchanMomoImg,
     title: "Kanchan Momo",
@@ -73,7 +83,7 @@ export const Portfolio = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group relative rounded-lg bg-card border border-border hover:border-primary/50 shadow-card transition-all duration-300 hover:-translate-y-1 overflow-hidden animate-fade-in-up"
+                className="group relative rounded-2xl neu border border-border/60 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 overflow-hidden animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-muted">

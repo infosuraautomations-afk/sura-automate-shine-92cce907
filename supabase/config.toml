@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.chat-assistant]
 verify_jwt = false
+
+[functions.chat-handoff]
+verify_jwt = false

@@ -1,88 +1,49 @@
-import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@4.0.0";
+import { z } from "npm:zod@3.23.8";
+import { corsHeaders, esc, json, oneLine, readJson, tooMany } from "../_shared/security.ts";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+const Schema = z.object({
+  name: z.string().trim().min(1).max(100),
+  email: z.string().trim().email().max(255),
+  company: z.string().trim().max(120).optional().default(""),
+  projectType: z.string().trim().max(80).optional().default(""),
+  message: z.string().trim().min(1).max(3000),
+  website: z.string().max(0).optional(), // honeypot: must stay empty
+});
 
-interface ContactEmailRequest {
-  name: string;
-  email: string;
-  company?: string;
-  projectType?: string;
-  message: string;
-}
-
-const handler = async (req: Request): Promise<Response> => {
-  // Handle CORS preflight requests
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
+Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
+  if (req.method !== "POST") return json({ success: false, error: "Method not allowed" }, 405);
+  if (tooMany(req)) return json({ success: false, error: "Too many messages, please wait a minute." }, 429);
 
   try {
-    const { name, email, company, projectType, message }: ContactEmailRequest = await req.json();
+    const parsed = Schema.safeParse(await readJson(req));
+    if (!parsed.success) return json({ success: false, error: "Please check the form fields." }, 400);
+    const { name, email, company, projectType, message } = parsed.data;
 
-    console.log("Sending contact email from:", email);
-
-    // Send email to your business email
-    const emailResponse = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Sura Automations <onboarding@resend.dev>",
       to: ["infosuraautomations@gmail.com"],
       replyTo: email,
-      subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb; border-radius: 10px;">
-          <div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <h2 style="color: #2563eb; margin-bottom: 20px; border-bottom: 3px solid #2563eb; padding-bottom: 10px;">
-              New Contact Form Submission
-            </h2>
-            
-            <div style="margin-bottom: 20px;">
-              <p style="margin: 5px 0;"><strong style="color: #374151;">Name:</strong> <span style="color: #6b7280;">${name}</span></p>
-              <p style="margin: 5px 0;"><strong style="color: #374151;">Email:</strong> <span style="color: #2563eb;">${email}</span></p>
-              ${company ? `<p style="margin: 5px 0;"><strong style="color: #374151;">Company:</strong> <span style="color: #6b7280;">${company}</span></p>` : ''}
-              ${projectType ? `<p style="margin: 5px 0;"><strong style="color: #374151;">Project Type:</strong> <span style="color: #6b7280;">${projectType}</span></p>` : ''}
-            </div>
-            
-            <div style="background-color: #f3f4f6; padding: 20px; border-radius: 6px; border-left: 4px solid #2563eb;">
-              <h3 style="color: #374151; margin-top: 0;">Message:</h3>
-              <p style="color: #4b5563; line-height: 1.6; white-space: pre-wrap;">${message}</p>
-            </div>
-            
-            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
-              <p style="color: #9ca3af; font-size: 12px;">
-                This email was sent from the Sura Automations website contact form.
-                <br>
-                Reply directly to this email to respond to ${name}.
-              </p>
-            </div>
-          </div>
-        </div>
-      `,
+      subject: `New enquiry from ${oneLine(name)}`,
+      html: `<div style="font-family:Arial,sans-serif;max-width:600px;padding:20px">
+        <h2 style="color:#2d5a47">New website enquiry</h2>
+        <p><b>Name:</b> ${esc(name)}</p>
+        <p><b>Email:</b> ${esc(email)}</p>
+        ${company ? `<p><b>Business:</b> ${esc(company)}</p>` : ""}
+        ${projectType ? `<p><b>Project:</b> ${esc(projectType)}</p>` : ""}
+        <p style="white-space:pre-wrap;background:#f4efe6;padding:14px;border-radius:8px">${esc(message)}</p>
+      </div>`,
     });
-
-    console.log("Email sent successfully:", emailResponse);
-
-    return new Response(JSON.stringify({ success: true, data: emailResponse }), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-        ...corsHeaders,
-      },
-    });
-  } catch (error: any) {
-    console.error("Error sending email:", error);
-    return new Response(
-      JSON.stringify({ success: false, error: error.message }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
-    );
+    if (error) {
+      console.error("Resend error:", error);
+      return json({ success: false, error: "Email service failed" }, 502);
+    }
+    return json({ success: true });
+  } catch (e) {
+    console.error("contact error:", e);
+    return json({ success: false, error: "Invalid request" }, 400);
   }
-};
-
-serve(handler);
+});

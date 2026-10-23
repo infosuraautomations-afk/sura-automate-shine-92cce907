@@ -34,7 +34,7 @@ export const Footer = () => {
                 <button onClick={() => scrollToSection("services")} className="text-muted-foreground hover:text-primary transition-colors text-left">
                   Services
                 </button>
-                <button onClick={() => scrollToSection("reviews")} className="text-muted-foreground hover:text-primary transition-colors text-left">
+                <button onClick={() => scrollToSection("add-review")} className="text-muted-foreground hover:text-primary transition-colors text-left">
                   Reviews
                 </button>
                 <button onClick={() => scrollToSection("contact")} className="text-muted-foreground hover:text-primary transition-colors text-left">
