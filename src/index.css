@@ -8,61 +8,63 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Base colors - modern dark slate theme */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    /* Warm, natural palette: paper, ink, forest green, clay */
+    --background: 38 30% 92%;
+    --foreground: 25 22% 15%;
+    --card: 38 32% 94%;
+    --card-foreground: 25 22% 15%;
+    --popover: 38 32% 95%;
+    --popover-foreground: 25 22% 15%;
+    --primary: 156 34% 27%;
+    --primary-foreground: 40 40% 97%;
+    --primary-glow: 156 28% 36%;
+    --secondary: 32 30% 84%;
+    --secondary-foreground: 25 22% 15%;
+    --muted: 36 22% 87%;
+    --muted-foreground: 25 10% 38%;
+    --accent: 20 52% 50%;
+    --accent-foreground: 40 40% 97%;
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 40 40% 97%;
+    --border: 34 18% 80%;
+    --input: 34 18% 80%;
+    --ring: 156 34% 27%;
+    --radius: 1rem;
 
-    /* Card styling */
-    --card: 222 47% 14%;
-    --card-foreground: 210 40% 98%;
-
-    /* Popover */
-    --popover: 222 47% 14%;
-    --popover-foreground: 210 40% 98%;
-
-    /* Primary - Vibrant Cyan/Blue */
-    --primary: 199 89% 48%;
-    --primary-foreground: 222 47% 11%;
-    --primary-glow: 199 89% 58%;
-
-    /* Secondary - Deep Purple */
-    --secondary: 263 70% 50%;
-    --secondary-foreground: 210 40% 98%;
-
-    /* Muted */
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    /* Accent - Electric Purple */
-    --accent: 271 81% 56%;
-    --accent-foreground: 210 40% 98%;
-
-    /* Destructive */
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    /* Borders and inputs */
-    --border: 217 33% 22%;
-    --input: 217 33% 22%;
-    --ring: 199 89% 48%;
-
-    /* Border radius */
-    --radius: 0.75rem;
-
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(271 81% 56%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(222 47% 14%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(271 81% 56%) 0%, hsl(199 89% 58%) 100%);
-    --shadow-elegant: 0 10px 40px -10px hsl(199 89% 48% / 0.4);
-    --shadow-card: 0 4px 20px -2px hsl(199 89% 48% / 0.2);
-    --shadow-glow: 0 0 60px hsl(199 89% 58% / 0.5);
-    --shadow-neon: 0 0 30px hsl(271 81% 56% / 0.6);
+    --gradient-primary: linear-gradient(135deg, hsl(156 34% 27%) 0%, hsl(156 28% 36%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(38 30% 92%) 0%, hsl(36 26% 89%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(20 52% 50%) 0%, hsl(30 50% 60%) 100%);
+    /* Neumorphic shadows: light top-left, soft dark bottom-right */
+    --neu-light: 40 45% 99%;
+    --neu-dark: 32 22% 72%;
+    --shadow-elegant: 8px 8px 20px hsl(var(--neu-dark) / 0.6), -8px -8px 20px hsl(var(--neu-light) / 0.9);
+    --shadow-card: 6px 6px 16px hsl(var(--neu-dark) / 0.55), -6px -6px 16px hsl(var(--neu-light) / 0.9);
+    --shadow-glow: 10px 10px 28px hsl(var(--neu-dark) / 0.6), -10px -10px 28px hsl(var(--neu-light) / 0.95);
+    --shadow-neon: 6px 6px 16px hsl(var(--neu-dark) / 0.5), -6px -6px 16px hsl(var(--neu-light) / 0.9);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
 
 @layer utilities {
+  /* Neumorphism: soft raised surface */
+  .neu {
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-card);
+  }
+  .neu-inset {
+    background: hsl(var(--muted) / 0.6);
+    box-shadow: inset 4px 4px 10px hsl(var(--neu-dark) / 0.5), inset -4px -4px 10px hsl(var(--neu-light) / 0.9);
+  }
+  /* Glassmorphism: frosted panel, combined with a soft neumorphic lift */
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid hsl(var(--neu-light) / 0.7);
+    box-shadow: var(--shadow-card);
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
