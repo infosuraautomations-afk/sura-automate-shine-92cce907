@@ -68,12 +68,6 @@ export const Services = () => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-background via-accent/5 to-background relative overflow-hidden">
-      {/* 3D Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 right-20 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-tl from-primary-glow/10 to-transparent rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-1/2 left-1/3 w-48 h-48 border border-primary/10 rounded-lg rotate-12 animate-float" style={{ animationDelay: '3s' }} />
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto space-y-12">
@@ -93,7 +87,6 @@ export const Services = () => {
               <div
                 key={index}
                 className="group p-8 rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-3 animate-fade-in relative overflow-hidden"
-                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Gradient overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary-glow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -135,9 +128,9 @@ export const Services = () => {
       <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
         <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
           <DialogHeader>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-4 mb-4 min-w-0">
               {selectedService && (
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/10 to-primary-glow/10 flex items-center justify-center">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
                   <selectedService.icon className="w-8 h-8 text-primary" />
                 </div>
               )}
