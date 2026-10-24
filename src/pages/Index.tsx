@@ -10,17 +10,17 @@ import { ReviewForm } from "@/components/ReviewForm";
 import { ChatLauncher } from "@/components/ChatLauncher";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Footer } from "@/components/Footer";
-import { FloatingShapes } from "@/components/FloatingShapes";
+import { ScrollStudio } from "@/components/ScrollStudio";
 
 const Index = () => {
   useScrollReveal();
   return (
     <div className="min-h-screen relative">
-      <FloatingShapes />
       <Navbar />
       <div id="home" className="pt-16 relative z-10">
         <Hero />
         <Portfolio />
+        <ScrollStudio />
         <Founder />
         <About />
         <div id="services">
