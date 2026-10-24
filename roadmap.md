@@ -1,3 +1,6 @@
 - [x] Broaden website and assistant messaging to all industries.
 - [x] Replace café decoration with lightweight scroll motion and reduce loading/rendering costs.
 - [x] Add an interactive real-project spotlight and verify desktop/mobile flows.
+- [ ] Move Websites We've Built immediately below a compact opening section.
+- [ ] Add creative natural colours and reliable scroll-triggered motion.
+- [ ] Verify work navigation, scrolling, and layouts on desktop and mobile.
