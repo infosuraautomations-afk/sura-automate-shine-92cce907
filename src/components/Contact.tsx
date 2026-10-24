@@ -15,14 +15,10 @@ export const Contact = () => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-background to-accent/10 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="p-8 md:p-12 rounded-2xl bg-card/80 backdrop-blur-sm border border-border shadow-glow hover:shadow-glow transition-all duration-500 animate-scale-in">
+          <div className="py-4 animate-scale-in">
             {/* Header */}
             <div className="text-center space-y-4 mb-8">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">

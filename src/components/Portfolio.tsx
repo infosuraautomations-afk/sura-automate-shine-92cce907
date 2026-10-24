@@ -63,18 +63,16 @@ const projects = [
 
 export const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-20 bg-gradient-to-b from-background to-accent/10 relative overflow-hidden">
+    <section id="portfolio" className="portfolio-band py-10 sm:py-14 relative overflow-hidden">
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto space-y-14">
-          <div className="text-center space-y-4 animate-fade-in">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
-              Our Recent Work
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+        <div className="max-w-6xl mx-auto space-y-7 sm:space-y-10">
+          <div className="space-y-3 animate-fade-in">
+            <p className="text-primary text-xs font-semibold uppercase">Real projects. Different businesses.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Websites We've Built
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base text-muted-foreground max-w-2xl leading-relaxed">
               From education and health to creative agencies and commerce — different businesses, thoughtfully built websites.
             </p>
           </div>
@@ -83,8 +81,7 @@ export const Portfolio = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group relative rounded-2xl neu border border-border/60 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 overflow-hidden animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="project-card group relative rounded-lg neu border border-border/60 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 overflow-hidden animate-fade-in-up"
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-muted">
                   <img
@@ -96,10 +93,9 @@ export const Portfolio = () => {
                     height="800"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-card/10 to-transparent" />
                 </div>
 
-                <div className="p-6 space-y-4">
+                <div className="p-5 space-y-4">
                   <div className="space-y-2">
                     <span className="text-xs font-semibold text-primary uppercase tracking-wider">
                       {project.category}
