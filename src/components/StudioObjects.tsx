@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Lightformer, RoundedBox } from "@react-three/drei";
+import { Environment, Lightformer, RoundedBox, OrthographicCamera } from "@react-three/drei";
 import { CanvasTexture, Group, SRGBColorSpace } from "three";
 
 type Palette = { paper: string; green: string; coral: string; ink: string; soft: string };
-const kinds = ["website", "chat", "code", "analytics", "workflow", "commerce"];
+const kinds = ["website", "chat", "code", "analytics", "workflow", "commerce", "booking", "forms", "connections"];
 
 function makeSurface(kind: string, palette: Palette) {
   const canvas = document.createElement("canvas");
@@ -36,6 +36,13 @@ function makeSurface(kind: string, palette: Palette) {
   } else if (kind === "code") {
     ctx.font = "bold 38px monospace"; ctx.fillStyle = palette.green; ctx.fillText("</>", 25, 110);
     for (let i = 0; i < 7; i++) block(32 + (i % 3) * 22, 140 + i * 28, 160 + (i % 3) * 70, 12, i % 2 ? palette.coral : palette.green);
+  } else if (kind === "booking") {
+    ctx.font = "bold 26px sans-serif"; ctx.fillStyle = palette.ink; ctx.fillText("Your bookings", 28, 90);
+    for (let i = 0; i < 21; i++) block(28 + (i % 7) * 66, 120 + Math.floor(i / 7) * 65, 50, 48, i === 10 ? palette.coral : palette.soft, 7);
+  } else if (kind === "forms") {
+    ctx.font = "bold 26px sans-serif"; ctx.fillStyle = palette.ink; ctx.fillText("Let’s talk", 28, 90);
+    for (let i = 0; i < 3; i++) block(28, 120 + i * 55, 452, 38, palette.soft, 6);
+    block(28, 300, 160, 40, palette.green, 6);
   } else if (kind === "analytics") {
     for (let i = 0; i < 5; i++) { const h = 65 + i * 36; block(44 + i * 85, 321 - h, 54, h, i % 2 ? palette.coral : palette.green); }
     block(30, 340, 450, 5, palette.soft);
@@ -59,17 +66,23 @@ function Objects({ palette, host }: { palette: Palette; host: React.RefObject<HT
   useEffect(() => () => textures.forEach((texture) => texture.dispose()), [textures]);
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => {
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
       reduced.current = preference.matches;
       const rect = host.current?.getBoundingClientRect();
-      if (rect) target.current = Math.max(0, Math.min(1, (window.innerHeight * 0.6 - rect.top) / (rect.height + window.innerHeight * 0.2)));
-      invalidate();
+      if (rect) {
+        target.current = Math.max(0, Math.min(1, (80 - rect.top) / Math.max(1, rect.height - window.innerHeight + 80)));
+        if (rect.bottom > 0 && rect.top < window.innerHeight) invalidate();
+      }
     };
-    update();
+    const update = () => { if (!frame) frame = requestAnimationFrame(measure); };
+    measure();
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     preference.addEventListener("change", update);
     return () => {
+      cancelAnimationFrame(frame);
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
       preference.removeEventListener("change", update);
@@ -77,38 +90,48 @@ function Objects({ palette, host }: { palette: Palette; host: React.RefObject<HT
   }, [host, invalidate]);
   useFrame((_, rawDelta) => {
     const dt = Math.min(rawDelta, 0.05);
-    const next = reduced.current ? 0.45 : target.current;
+    const next = reduced.current ? 0.5 : target.current;
     progress.current += (next - progress.current) * (1 - Math.exp(-9 * dt));
     const t = progress.current;
     const mobile = size.width < 640;
     root.current?.children.forEach((object, i) => {
-      const columns = mobile ? 2 : 3;
-      const x = (i % columns - (columns - 1) / 2) * (mobile ? 2.4 : 3.1);
-      const y = ((mobile ? 1 : 0.5) - Math.floor(i / columns)) * (mobile ? 1.92 : 2.35);
-      object.position.set(x + Math.sin(t * Math.PI * 2 + i) * 0.18, y + Math.sin(t * Math.PI + i) * 0.25, Math.sin(t * Math.PI + i) * 0.25);
-      object.rotation.set((t - 0.5) * 0.35 + (i % 2 ? -0.08 : 0.08), (t - 0.5) * 0.8 + (i % 2 ? -0.18 : 0.18), Math.sin(t * Math.PI * 2 + i) * 0.09);
-      object.scale.setScalar(mobile ? 0.72 : 0.95);
+      const x = (i % 3 - 1) * 3.1;
+      const y = (1 - Math.floor(i / 3)) * 2.35;
+      // Positive world Y is up: a decreasing Y creates visible downward travel.
+      const travel = (0.5 - t) * 1.6;
+      object.position.set(x + Math.sin(t * Math.PI + i) * 0.12, y + travel, Math.sin(t * Math.PI + i) * 0.22);
+      object.rotation.set((t - 0.5) * 0.3 + (i % 2 ? -0.07 : 0.07), (t - 0.5) * 0.55 + (i % 2 ? -0.15 : 0.15), Math.sin(t * Math.PI + i) * 0.04);
+      object.scale.setScalar(mobile ? 0.94 : 1);
     });
     if (Math.abs(next - t) > 0.0002) invalidate();
   });
-  return <group ref={root}>
-    {kinds.map((kind, i) => <group key={kind}>
-      <RoundedBox args={[2.45, 1.86, 0.2]} radius={0.12} smoothness={3}>
-        <meshStandardMaterial color={i % 3 === 1 ? palette.coral : palette.green} roughness={0.38} metalness={0.05} />
+  return <>
+    <OrthographicCamera makeDefault position={[0, 0, 16]} zoom={Math.min(size.width / 10.2, size.height / 9.2)} near={0.1} far={50} />
+    <group ref={root}>
+    {kinds.map((kind, i) => <group key={kind} name={kind}>
+      <RoundedBox args={[2.45, 1.86, kind === "code" ? 0.42 : 0.2]} radius={0.1} smoothness={2}>
+        <meshStandardMaterial color={i % 3 === 1 ? palette.coral : palette.green} roughness={0.7} metalness={0} />
       </RoundedBox>
-      <mesh position={[0, 0, 0.106]}>
+      <mesh position={[0, 0, kind === "code" ? 0.216 : 0.106]}>
         <planeGeometry args={[2.28, 1.7]} />
         <meshStandardMaterial map={textures[i]} roughness={0.65} />
       </mesh>
-      <RoundedBox args={[0.62, 0.14, 0.38]} radius={0.06} smoothness={2} position={[0.7, -0.98, 0.07]}>
-        <meshStandardMaterial color={palette.coral} roughness={0.5} />
-      </RoundedBox>
+      {kind === "chat" || kind === "forms" ? <mesh position={[-0.7, -0.94, 0]} rotation-z={Math.PI}>
+        <coneGeometry args={[0.19, 0.32, 3]} />
+        <meshStandardMaterial color={palette.coral} roughness={0.8} />
+      </mesh> : <RoundedBox args={[0.62, 0.14, 0.38]} radius={0.06} smoothness={2} position={[0.7, -0.98, 0.07]}>
+        <meshStandardMaterial color={palette.coral} roughness={0.8} />
+      </RoundedBox>}
+      {kind === "connections" && <mesh position={[1.15, 0, 0.1]} rotation-y={Math.PI / 2}>
+        <torusGeometry args={[0.29, 0.075, 8, 20]} />
+        <meshStandardMaterial color={palette.green} roughness={0.8} />
+      </mesh>}
     </group>)}
-  </group>;
+  </group></>;
 }
 
 export default function StudioObjects({ palette, host }: { palette: Palette; host: React.RefObject<HTMLDivElement> }) {
-  return <Canvas frameloop="demand" dpr={[1, 1.5]} camera={{ position: [0, 0, 11], fov: 40 }} gl={{ alpha: true, antialias: true }}>
+  return <Canvas frameloop="demand" dpr={[1, 1.25]} gl={{ alpha: true, antialias: true }}>
     <ambientLight intensity={1.1} />
     <directionalLight position={[3, 5, 6]} intensity={2.2} />
     <Environment resolution={64}>
