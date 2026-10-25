@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Loader2, RotateCcw, Mail, Check, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import logo from "@/assets/sura-logo-wide-fixed.png.asset.json";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -111,14 +112,14 @@ export const Chatbot = ({ initiallyOpen = false }: { initiallyOpen?: boolean }) 
                 <ArrowLeft className="w-4 h-4" />
               </button>
             ) : (
-              <div className="w-10 h-10 rounded-full neu flex items-center justify-center font-semibold text-primary">S</div>
+              <img src={logo.url} alt="Sura Automations" className="w-16 h-9 object-contain rounded-sm" />
             )}
             <div className="flex-1">
               <h3 className="font-semibold leading-tight text-foreground">
                 {mode === "chat" ? "Chat with Sura" : "Message Suraj"}
               </h3>
               <p className="text-xs text-muted-foreground">
-                {mode === "chat" ? "Quick answers, any time" : "Goes straight to his inbox"}
+                {mode === "chat" ? "Let’s talk about your project" : "Goes straight to his inbox"}
               </p>
             </div>
             <button onClick={reset} aria-label="Start over" title="Start over" className="p-2 rounded-full hover:bg-muted transition">

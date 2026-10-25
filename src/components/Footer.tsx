@@ -1,4 +1,4 @@
-import logo from "@/assets/sura-logo-wide.png.asset.json";
+import logo from "@/assets/sura-logo-wide-fixed.png.asset.json";
 
 export const Footer = () => (
   <footer className="bg-secondary/50 border-t border-border py-8">

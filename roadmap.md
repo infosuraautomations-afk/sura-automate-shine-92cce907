@@ -4,7 +4,7 @@
 - [x] Move Websites We've Built immediately below a compact opening section.
 - [x] Add creative natural colours and reliable scroll-triggered motion.
 - [x] Verify work navigation, scrolling, and layouts on desktop and mobile (320, 390, 662, and 1280px), including reduced motion.
-- [ ] Add niche-relevant 3D browser, chat, code, analytics, and integration sculptures with scroll-controlled motion.
-- [ ] Verify 3D visibility and movement on desktop and mobile, including reduced motion.
-- [ ] Apply the uploaded logo to website branding, browser icon and sharing banner.
-- [ ] Strengthen top-to-bottom scroll choreography and natural presentation.
+- [x] Add niche-relevant 3D browser, chat, code, analytics, and integration sculptures with scroll-controlled motion.
+- [x] Verify 3D visibility and movement on desktop and mobile, including reduced motion.
+- [x] Apply the uploaded logo to website branding, browser icon and sharing banner.
+- [x] Strengthen top-to-bottom scroll choreography and natural presentation.
