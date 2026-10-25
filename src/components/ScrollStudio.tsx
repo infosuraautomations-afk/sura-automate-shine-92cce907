@@ -17,6 +17,7 @@ export function ScrollStudio() {
     setPalette({ paper: color("--card"), green: color("--primary"), coral: color("--accent"), ink: color("--foreground"), soft: color("--secondary") });
     const element = host.current;
     if (!element) return;
+    if (!("IntersectionObserver" in window)) { setReady(true); return; }
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { setReady(true); observer.disconnect(); }
     }, { rootMargin: "300px" });
@@ -25,9 +26,9 @@ export function ScrollStudio() {
   }, []);
   return <section ref={host} className="scroll-studio relative" aria-label="Website development and automation in 3D">
     <div className="studio-stage sticky top-20">
-      <div className="container mx-auto px-4 text-center pt-6">
-        <p className="text-xs font-semibold uppercase text-primary mb-3">Made for your business</p>
-        <h2 className="text-2xl sm:text-3xl font-bold">Websites. Conversations. Connected workflows.</h2>
+      <div className="container mx-auto px-4 text-center pt-6 studio-heading">
+        <p className="text-xs font-semibold uppercase text-primary mb-2">Thoughtfully connected</p>
+        <h2 className="text-2xl sm:text-3xl font-bold">The little things that make it work.</h2>
       </div>
       <div className="studio-canvas" aria-hidden="true">
         {ready && <SceneBoundary><Suspense fallback={null}><StudioObjects palette={palette} host={host} /></Suspense></SceneBoundary>}

@@ -4,3 +4,5 @@
 - Load the chat widget on first interaction, so its client code is not needed for the initial page.
 - Use the shared IntersectionObserver scroll-reveal hook for one-time section entrances, keeping opening content visible and respecting reduced motion; this avoids scroll-triggered React renders and hidden-content failures.
 - Lazy-load the 3D studio near the viewport, derive its material palette from CSS tokens, and use locally generated UI textures with local environment lights, so it needs no external model, font, or HDR requests.
+- Frame the scroll studio with explicit sticky-stage and canvas dimensions and a responsive orthographic camera, so every sculpture stays visible across viewport sizes.
+- Use CDN pointers for uploaded brand media and a small local favicon derived from the same logo, so website and sharing identity remain consistent.
