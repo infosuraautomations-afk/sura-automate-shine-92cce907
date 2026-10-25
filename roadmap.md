@@ -6,3 +6,5 @@
 - [x] Verify work navigation, scrolling, and layouts on desktop and mobile (320, 390, 662, and 1280px), including reduced motion.
 - [ ] Add niche-relevant 3D browser, chat, code, analytics, and integration sculptures with scroll-controlled motion.
 - [ ] Verify 3D visibility and movement on desktop and mobile, including reduced motion.
+- [ ] Apply the uploaded logo to website branding, browser icon and sharing banner.
+- [ ] Strengthen top-to-bottom scroll choreography and natural presentation.
