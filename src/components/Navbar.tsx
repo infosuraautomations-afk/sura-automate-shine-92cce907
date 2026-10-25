@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/sura-logo-wide-fixed.png.asset.json";
 
 const links = [
   { label: "Home", id: "home" },
@@ -38,16 +39,11 @@ export const Navbar = () => {
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Button variant="ghost"
           onClick={() => go("home")}
-          className="flex items-center gap-2 group p-0 hover:bg-transparent"
+          className="flex items-center gap-2 group p-0 h-12 hover:bg-transparent"
           aria-label="Sura Automations home"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-            <Sparkles className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <div className="text-left leading-tight">
-            <p className="font-bold text-foreground text-sm sm:text-base">Sura Automations</p>
-            <p className="text-[10px] sm:text-xs text-muted-foreground">Founded by Suraj Bishwokarma</p>
-          </div>
+          <img src={logo.url} alt="Sura Automations" width={901} height={379} className="h-11 w-[106px] sm:w-[130px] object-contain rounded-sm" />
+          <span className="hidden lg:block text-left text-xs text-muted-foreground max-w-24 leading-relaxed">Led by Suraj Bishwokarma</span>
         </Button>
 
         <ul className="hidden md:flex items-center gap-1">

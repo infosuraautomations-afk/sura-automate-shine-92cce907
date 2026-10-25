@@ -4,7 +4,7 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 export const Hero = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
+    element?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   };
 
   return (
@@ -14,7 +14,7 @@ export const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-5 animate-fade-in">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 text-primary">
-            <span className="text-xs sm:text-sm font-semibold">Sura Automations · Founded by Suraj Bishwokarma</span>
+            <span className="text-xs sm:text-sm font-semibold">A small studio led by Suraj Bishwokarma</span>
           </div>
 
           {/* Main Headline */}
@@ -28,7 +28,7 @@ export const Hero = () => {
 
           {/* Subtext */}
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Your business has its own story. We turn it into a website that feels like you — with chatbots and smarter workflows when you need them.
+            We build websites that feel right for your business, with chatbots and practical automation when they’re useful.
           </p>
 
           {/* CTA Buttons */}
