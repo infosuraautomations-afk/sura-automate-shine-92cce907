@@ -23,6 +23,7 @@ All colors MUST be HSL.
     --muted: 150 12% 92%;
     --muted-foreground: 160 9% 37%;
     --accent: 10 70% 57%;
+    --brand-logo: 210 94% 48%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 65% 48%;
     --destructive-foreground: 40 40% 97%;
@@ -98,7 +99,31 @@ All colors MUST be HSL.
   text-underline-offset: 9px;
 }
 
-.portfolio-band { background: hsl(var(--secondary) / 0.65); }
+.portfolio-band {
+  background: hsl(var(--secondary) / 0.65);
+}
+/* Quiet technical drawing details, with no extra moving models. */
+.hero-intro::before, .portfolio-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(hsl(var(--primary) / 0.16) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to right, black, transparent 28%, transparent 72%, black);
+}
+.hero-intro::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 72px;
+  right: 4%;
+  bottom: 24px;
+  border-left: 1px solid hsl(var(--primary) / 0.25);
+  border-bottom: 1px solid hsl(var(--primary) / 0.25);
+  border-radius: 0 0 0 24px;
+  pointer-events: none;
+}
 .page-scroll-models {
   position: fixed;
   inset: 80px 0 0;
@@ -108,7 +133,7 @@ All colors MUST be HSL.
 }
 .page-scroll-models canvas { pointer-events: none; }
 @media (max-width: 767px) {
-  .page-scroll-models { opacity: 0.65; }
+  .hero-intro::after { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .page-scroll-models { display: none; }

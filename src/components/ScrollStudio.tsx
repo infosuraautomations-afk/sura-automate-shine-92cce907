@@ -9,12 +9,12 @@ class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean
 
 export function ScrollStudio() {
   const [ready, setReady] = useState(false);
-  const [palette, setPalette] = useState({ paper: "", green: "", coral: "", ink: "", soft: "" });
+  const [palette, setPalette] = useState({ paper: "", green: "", coral: "", ink: "", soft: "", brand: "" });
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const style = getComputedStyle(document.documentElement);
     const color = (name: string) => `hsl(${style.getPropertyValue(name).trim().replace(/\s+/g, ", ")})`;
-    setPalette({ paper: color("--card"), green: color("--primary"), coral: color("--accent"), ink: color("--foreground"), soft: color("--secondary") });
+    setPalette({ paper: color("--card"), green: color("--primary"), coral: color("--accent"), ink: color("--foreground"), soft: color("--secondary"), brand: color("--brand-logo") });
     const update = () => setReady(!preference.matches);
     const timer = window.setTimeout(update, 400);
     preference.addEventListener("change", update);
