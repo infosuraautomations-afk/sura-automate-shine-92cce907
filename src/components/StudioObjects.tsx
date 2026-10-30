@@ -56,57 +56,59 @@ function makeSurface(kind: string, palette: Palette) {
   return texture;
 }
 
-function Objects({ palette, host }: { palette: Palette; host: React.RefObject<HTMLDivElement> }) {
+function Objects({ palette }: { palette: Palette }) {
   const root = useRef<Group>(null);
   const progress = useRef(0);
   const target = useRef(0);
-  const reduced = useRef(false);
-  const { invalidate, size } = useThree();
+  const { invalidate, size, gl } = useThree();
   const textures = useMemo(() => kinds.map((kind) => makeSurface(kind, palette)), [palette]);
   useEffect(() => () => textures.forEach((texture) => texture.dispose()), [textures]);
   useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let frame = 0;
+    let distance = 1;
     const measure = () => {
-      frame = 0;
-      reduced.current = preference.matches;
-      const rect = host.current?.getBoundingClientRect();
-      if (rect) {
-        target.current = Math.max(0, Math.min(1, (80 - rect.top) / Math.max(1, rect.height - window.innerHeight + 80)));
-        if (rect.bottom > 0 && rect.top < window.innerHeight) invalidate();
-      }
+      distance = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      update();
     };
-    const update = () => { if (!frame) frame = requestAnimationFrame(measure); };
+    const update = () => {
+      target.current = Math.max(0, Math.min(1, window.scrollY / distance));
+      invalidate();
+    };
+    const observer = new ResizeObserver(measure);
+    observer.observe(document.body);
     measure();
     window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    preference.addEventListener("change", update);
+    window.addEventListener("resize", measure);
     return () => {
-      cancelAnimationFrame(frame);
+      observer.disconnect();
       window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-      preference.removeEventListener("change", update);
+      window.removeEventListener("resize", measure);
     };
-  }, [host, invalidate]);
+  }, [invalidate]);
   useFrame((_, rawDelta) => {
     const dt = Math.min(rawDelta, 0.05);
-    const next = reduced.current ? 0.5 : target.current;
-    progress.current += (next - progress.current) * (1 - Math.exp(-9 * dt));
+    const next = target.current;
+    progress.current += (next - progress.current) * (1 - Math.exp(-18 * dt));
     const t = progress.current;
-    const mobile = size.width < 640;
+    const scale = size.width < 640 ? 0.25 : size.width < 1100 ? 0.38 : 0.68;
+    const halfWidth = size.width / 100;
+    const halfHeight = size.height / 100;
     root.current?.children.forEach((object, i) => {
-      const x = (i % 3 - 1) * 3.1;
-      const y = (1 - Math.floor(i / 3)) * 2.35;
-      // Positive world Y is up: a decreasing Y creates visible downward travel.
-      const travel = (0.5 - t) * 1.6;
-      object.position.set(x + Math.sin(t * Math.PI + i) * 0.12, y + travel, Math.sin(t * Math.PI + i) * 0.22);
-      object.rotation.set((t - 0.5) * 0.3 + (i % 2 ? -0.07 : 0.07), (t - 0.5) * 0.55 + (i % 2 ? -0.15 : 0.15), Math.sin(t * Math.PI + i) * 0.04);
-      object.scale.setScalar(mobile ? 0.94 : 1);
+      // Staggered journeys across the entire page: only two or three are on screen.
+      const journey = t * 5.4 - i * 0.57 + 0.45;
+      object.visible = journey >= -0.15 && journey <= 1.15;
+      const side = i % 2 ? 1 : -1;
+      // Keep models in the outer gutters, clear of text and controls.
+      const edge = size.width < 1100 ? scale * 0.35 : scale * 1.35;
+      object.position.set(side * (halfWidth - edge), halfHeight * (1 - journey * 2), 0);
+      object.rotation.set(0.12, side * (0.28 + journey * 0.35), side * (journey - 0.5) * 0.14);
+      object.scale.setScalar(scale);
     });
+    gl.domElement.parentElement?.setAttribute("data-scene-ready", "true");
+    gl.domElement.dataset.scrollProgress = t.toFixed(4);
     if (Math.abs(next - t) > 0.0002) invalidate();
   });
   return <>
-    <OrthographicCamera makeDefault position={[0, 0, 16]} zoom={Math.min(size.width / 10.2, size.height / 9.2)} near={0.1} far={50} />
+    <OrthographicCamera makeDefault position={[0, 0, 16]} zoom={50} near={0.1} far={50} />
     <group ref={root}>
     {kinds.map((kind, i) => <group key={kind} name={kind}>
       <RoundedBox args={[2.45, 1.86, kind === "code" ? 0.42 : 0.2]} radius={0.1} smoothness={2}>
@@ -130,14 +132,14 @@ function Objects({ palette, host }: { palette: Palette; host: React.RefObject<HT
   </group></>;
 }
 
-export default function StudioObjects({ palette, host }: { palette: Palette; host: React.RefObject<HTMLDivElement> }) {
-  return <Canvas frameloop="demand" dpr={[1, 1.25]} gl={{ alpha: true, antialias: true }}>
+export default function StudioObjects({ palette }: { palette: Palette }) {
+  return <Canvas frameloop="demand" dpr={1} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}>
     <ambientLight intensity={1.1} />
     <directionalLight position={[3, 5, 6]} intensity={2.2} />
-    <Environment resolution={64}>
+    <Environment resolution={32}>
       <Lightformer intensity={2} position={[0, 4, 3]} scale={[10, 6, 1]} />
       <Lightformer color={palette.soft} intensity={1} position={[-4, 0, 1]} rotation-y={Math.PI / 2} scale={[5, 5, 1]} />
     </Environment>
-    <Objects palette={palette} host={host} />
+    <Objects palette={palette} />
   </Canvas>;
 }
