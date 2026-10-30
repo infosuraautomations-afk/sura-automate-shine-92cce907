@@ -8,3 +8,4 @@
 - [x] Verify 3D visibility and movement on desktop and mobile, including reduced motion.
 - [x] Apply the uploaded logo to website branding, browser icon and sharing banner.
 - [x] Strengthen top-to-bottom scroll choreography and natural presentation.
+- [ ] Replace the grouped 3D section with lightweight page-wide downward movement and verify layouts.

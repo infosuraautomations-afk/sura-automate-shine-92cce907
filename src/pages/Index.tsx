@@ -17,10 +17,10 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <Navbar />
+      <ScrollStudio />
       <div id="home" className="pt-16 relative z-10">
         <Hero />
         <Portfolio />
-        <ScrollStudio />
         <Founder />
         <About />
         <div id="services">

@@ -99,33 +99,19 @@ All colors MUST be HSL.
 }
 
 .portfolio-band { background: hsl(var(--secondary) / 0.65); }
-.scroll-studio {
-  height: 240svh;
-  min-height: 1100px;
-  position: relative;
-  background: hsl(var(--secondary) / 0.45);
-  border-block: 1px solid hsl(var(--border));
-}
-.studio-stage {
-  height: min(760px, calc(100svh - 80px));
-  min-height: 360px;
+.page-scroll-models {
+  position: fixed;
+  inset: 80px 0 0;
+  z-index: 20;
+  pointer-events: none;
   overflow: hidden;
 }
-.studio-heading { position: relative; z-index: 1; }
-.studio-canvas {
-  height: calc(100% - 110px);
-  width: min(100%, 1200px);
-  margin-inline: auto;
-  pointer-events: none;
-}
+.page-scroll-models canvas { pointer-events: none; }
 @media (max-width: 767px) {
-  #home .scroll-studio { padding-block: 0; }
-  .studio-heading { padding-top: 16px; }
-  .studio-heading h2 { font-size: 22px; }
+  .page-scroll-models { opacity: 0.65; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .scroll-studio { height: auto; min-height: 0; }
-  .studio-stage { position: relative; top: 0; height: 700px; }
+  .page-scroll-models { display: none; }
 }
 .project-card { border-top: 3px solid hsl(var(--primary)); }
 .project-card:nth-child(3n + 2) { border-top-color: hsl(var(--accent)); }
