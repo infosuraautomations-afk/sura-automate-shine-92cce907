@@ -4,5 +4,5 @@
 - Load the chat widget on first interaction, so its client code is not needed for the initial page.
 - Use the shared IntersectionObserver scroll-reveal hook for one-time section entrances, keeping opening content visible and respecting reduced motion; this avoids scroll-triggered React renders and hidden-content failures.
 - Load decorative 3D during idle time, derive its palette from CSS tokens, and use local UI textures and environment lights to avoid external asset requests.
-- Use one fixed, pointer-transparent canvas with responsive edge lanes and staggered page-wide model travel, so no dedicated scroll section or grouped model grid slows access to content.
+- Use one fixed, pointer-transparent canvas with responsive upper/lower lanes and page-wide horizontal model travel, so decoration does not block controls or require a dedicated scroll section.
 - Use CDN pointers for uploaded brand media and a small local favicon derived from the same logo, so website and sharing identity remain consistent.
