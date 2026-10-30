@@ -9,4 +9,4 @@
 - [x] Apply the uploaded logo to website branding, browser icon and sharing banner.
 - [x] Strengthen top-to-bottom scroll choreography and natural presentation.
 - [x] Replace the grouped 3D section with lightweight page-wide downward movement and verify layouts.
-- [ ] Reduce decoration to two dimensional UI sculptures moving left to right and verify scroll direction.
+- [x] Reduce decoration to two dimensional UI sculptures moving left to right and verify scroll direction on desktop and mobile.
