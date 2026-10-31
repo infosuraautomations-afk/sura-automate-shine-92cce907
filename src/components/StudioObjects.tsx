@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Lightformer, OrthographicCamera } from "@react-three/drei";
+import { OrthographicCamera } from "@react-three/drei";
 import { ExtrudeGeometry, Group, Path, Shape } from "three";
 import logoContours from "@/assets/sura-logo-contours.json";
 
@@ -78,10 +78,7 @@ export default function StudioObjects({ palette }: { palette: Palette }) {
   return <Canvas frameloop="demand" dpr={1} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}>
     <ambientLight intensity={1.1} />
     <directionalLight position={[3, 5, 6]} intensity={2.2} />
-    <Environment resolution={32}>
-      <Lightformer intensity={2} position={[0, 4, 3]} scale={[10, 6, 1]} />
-      <Lightformer color={palette.soft} intensity={1} position={[-4, 0, 1]} rotation-y={Math.PI / 2} scale={[5, 5, 1]} />
-    </Environment>
+    <directionalLight color={palette.soft} position={[-4, 0, 3]} intensity={0.8} />
     <Logo palette={palette} />
   </Canvas>;
 }

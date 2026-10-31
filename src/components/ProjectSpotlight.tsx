@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { ArrowUpRight, Globe, GraduationCap, HeartPulse, Film, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import school from "@/assets/portfolio-school-portal.png";
-import health from "@/assets/portfolio-calorie-counter.png";
-import creative from "@/assets/portfolio-buzzedit.png";
-import commerce from "@/assets/portfolio-kanchan-momo.png";
+import school from "@/assets/portfolio-school-portal.webp";
+import health from "@/assets/portfolio-calorie-counter.webp";
+import creative from "@/assets/portfolio-buzzedit.webp";
+import commerce from "@/assets/portfolio-kanchan-momo.webp";
 
 const work = [
   { industry: "Education", icon: GraduationCap, title: "Sura School Portal", detail: "A simpler way to publish and access school results.", image: school, url: "https://sura-schoolportal.netlify.app/" },

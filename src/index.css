@@ -91,6 +91,28 @@ All colors MUST be HSL.
   border-bottom: 1px solid hsl(var(--border));
 }
 
+.studio-mark {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  background: hsl(var(--accent));
+  clip-path: polygon(50% 0, 61% 35%, 100% 50%, 61% 65%, 50% 100%, 39% 65%, 0 50%, 39% 35%);
+}
+.project-browser-bar > span:not(:last-child) {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--border));
+}
+.project-browser-bar > span:first-child { background: hsl(var(--accent)); }
+.project-browser-bar > span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+body { letter-spacing: 0; }
+@media (max-width: 767px) {
+  #home h2 { font-size: 30px; line-height: 1.2; }
+  #home h3 { overflow-wrap: anywhere; }
+}
+
 .hero-highlight {
   color: hsl(var(--primary));
   text-decoration: underline;
