@@ -6,3 +6,6 @@
 - Extrude the uploaded logo's locally traced contours with holes and bevels; use CSS-token materials and local lights so the actual logo has geometric depth without external model requests.
 - Use one fixed, pointer-transparent canvas with a responsive upper lane and page-wide horizontal logo travel, so decoration does not block controls or require a dedicated scroll section.
 - Use CDN pointers for uploaded brand media and a small local favicon derived from the same logo, so website and sharing identity remain consistent.
+- Use compressed local WebP screenshots in portfolio views so real project previews remain lightweight.
+- Generate the sitemap from explicit public routes before dev/build, omitting lastmod without an authoritative page-specific source, so crawler URLs stay consistent without invented dates.
+- Keep sitewide search metadata and Organization/WebSite structured data in the static HTML head, using the primary public domain, so crawler identity matches the website.

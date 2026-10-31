@@ -13,13 +13,14 @@ export const Hero = () => {
       <div className="container mx-auto px-4 py-10 sm:py-14 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-5 animate-fade-in">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 text-primary">
-            <span className="text-xs sm:text-sm font-semibold">A small studio led by Suraj Bishwokarma</span>
+          <div className="inline-flex items-center gap-3 text-primary">
+            <span className="studio-mark" aria-hidden="true" />
+            <span className="text-xs sm:text-sm font-semibold">Sura Automations · Independent web studio</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-[1.12]">
-            Websites for
+            Custom websites for
             <br />
             <span className="hero-highlight">
               Every Business.
@@ -28,7 +29,7 @@ export const Hero = () => {
 
           {/* Subtext */}
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We build websites that feel right for your business, with chatbots and practical automation when they’re useful.
+            A small studio led by Suraj Bishwokarma. We build websites that feel right for your business, with AI chatbots and practical automation when they’re useful.
           </p>
 
           {/* CTA Buttons */}
@@ -51,21 +52,6 @@ export const Hero = () => {
             </Button>
           </div>
 
-          {/* Trust indicators */}
-          <div className="hidden">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-medium">AI-Powered</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.2s" }} />
-              <span className="text-sm font-medium">Fast Delivery</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.4s" }} />
-              <span className="text-sm font-medium">24/7 Support</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

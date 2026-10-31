@@ -12,3 +12,6 @@
 - [x] Reduce decoration to two dimensional UI sculptures moving left to right and verify scroll direction on desktop and mobile.
 - [x] Replace both sculptures with an extruded version of the uploaded logo.
 - [x] Add restrained technology-inspired details and verify logo movement and mobile layout.
+- [ ] Improve search metadata, structured data, and sitemap.
+- [ ] Reduce image and 3D loading costs.
+- [ ] Add a creative portfolio browsing experience and verify mobile layouts.
